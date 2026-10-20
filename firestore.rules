@@ -1,0 +1,8 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Template for a NEW dedicated database. Review existing project rules
+    // before deployment: do not blindly overwrite rules for another app.
+    match /{document=**} { allow read, write: if false; }
+  }
+}

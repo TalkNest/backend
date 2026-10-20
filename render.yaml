@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: talknest-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: FIREBASE_CREDENTIALS
+        sync: false
